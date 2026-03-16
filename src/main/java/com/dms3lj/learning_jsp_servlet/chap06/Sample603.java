@@ -1,6 +1,8 @@
-package com.dms3lj.learning_jsp_servlet.chap04;
+package com.dms3lj.learning_jsp_servlet.chap06;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -10,17 +12,22 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class Sample401Form
+ * Servlet implementation class Sample603
  */
-@WebServlet("/Sample401Form")
-public class Sample401Form extends HttpServlet {
+@WebServlet("/Sample603")
+public class Sample603 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/chap04/sample401.jsp");
-		dispatcher.forward(request, response);		
+		List<String> data = new ArrayList<String>();
+		data.add("JSP");
+		data.add("and");
+		data.add("Servlet");
+		request.setAttribute("data", data);
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/chap06/sample603.jsp");
+		dispatcher.forward(request, response);
 	}
 }

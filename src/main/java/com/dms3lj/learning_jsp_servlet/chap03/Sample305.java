@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -21,7 +22,7 @@ public class Sample305 extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		var dispatcher = request.getRequestDispatcher("WEB-INF/chap03/sample305.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/chap03/sample305.jsp");
 		List<Employee> list = new ArrayList<>();
 		list.add(new Employee("氏名1", 10));
 		list.add(new Employee("氏名2", 20));
